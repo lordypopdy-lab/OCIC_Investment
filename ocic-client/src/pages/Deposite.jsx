@@ -28,7 +28,7 @@ const Deposite = () => {
                                     <button onClick={walletConnect} className='btn btn-secondary w-100'><i className="fas fa-wallet text-warning m-2"></i>Connect Wallet</button>
                                     <div style={{ border: "none", borderRadius: "9px" }} className="card card-gradient">
                                         <div className="card-body card-gradient">
-                                        <h5 onClick={() => handleCopy("1GNu6gMQMR2rWxZubMQ46icSSuTUbrNZLZ")}>12mndXTkUuc8Guj9h7sWU...<i style={{ cursor: "pointer" }} className="fas fa-copy text-warning m-1"></i></h5>
+                                        <h5 onClick={() => handleCopy("19sY932BMVqbP9eP54qWsiYNBuFmy2eXgJ")}>12mndXTkUuc8Guj9h7sWU...<i style={{ cursor: "pointer" }} className="fas fa-copy text-warning m-1"></i></h5>
                                             <h4 className="card-title">Deposit Using Bitcoin | USDT(TRC20)</h4>
                                             <p className="card-description">Bitcoin | USDT Deposit Method</p><hr />
                                             <form className="forms-sample">
@@ -40,7 +40,7 @@ const Deposite = () => {
                                 <div className="col-xl-6 col-sm-6 grid-margin mt-5">
                                     <div style={{ border: "none", borderRadius: "9px" }} className="card card-gradient">
                                         <div className="card-body card-gradient">
-                                        <h5 onClick={() => handleCopy("0x18562342774d0f6db54264edcdc650a6e2c7d45c")}>0x36c236529cf2579ccc06b450c...<i style={{ cursor: "pointer" }} className="fas fa-copy text-warning m-1"></i></h5>
+                                        <h5 onClick={() => handleCopy("TKym8FK6kaLgKzGQnJx9oRmcWWYHYHdnx9")}>0x36c236529cf2579ccc06b450c...<i style={{ cursor: "pointer" }} className="fas fa-copy text-warning m-1"></i></h5>
                                         <h4 className="card-title">Deposit Using USDT | USDT(TRC20)</h4>
                                         <p className="card-description">USD | USDT Deposit Method</p><hr />
                                             <p className="card-description">Request other available Deposit Method</p>
