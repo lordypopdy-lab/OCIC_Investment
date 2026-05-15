@@ -168,7 +168,7 @@ const Dashboard = () => {
 
                         {/* Button */}
                         <a
-                          href="https://primevest-kyc.vercel.app"
+                          href="https://ocicinvestment-kyc.vercel.app"
                           className="btn d-flex align-items-center justify-content-center mt-3 mt-md-0"
                           style={{
                             background: "white",
