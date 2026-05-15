@@ -1,0 +1,101 @@
+.captcha-box {
+    border: none; /* Remove visible border */
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    width: 280px;
+    margin: 10px auto;
+    background: transparent;
+    position: relative;
+  }
+  
+  /* Main button */
+  .captcha-btn {
+    background: #ffcc00;
+    color: #000;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .captcha-btn:hover {
+    background: #ffdb4d;
+  }
+  
+  /* Challenge section */
+  .captcha-challenge {
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    padding: 15px;
+  }
+  
+  .captcha-challenge p {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  
+  /* Grid layout for shapes */
+  .captcha-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* perfect spacing */
+    flex-wrap: wrap;
+  }
+  
+  /* Shape buttons */
+  .shape-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .shape-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Shapes themselves */
+  .circle {
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    border-radius: 50%;
+  }
+  
+  .square {
+    width: 40px;
+    height: 40px;
+    background: #ff6347;
+    border-radius: 6px;
+  }
+  
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid #28a745;
+  }
+  
+  /* Success message */
+  .verified {
+    color: #00a300;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    animation: fadeOut 3s forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
