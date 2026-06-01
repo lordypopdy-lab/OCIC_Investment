@@ -39,7 +39,7 @@ const Deposite = () => {
                       {/* WALLET */}
                       <div
                         onClick={() =>
-                          handleCopy("")
+                          handleCopy("1GNu6gMQMR2rWxZubMQ46icSSuTUbrNZLZ")
                         }
                         style={walletBox}
                       >
@@ -77,7 +77,7 @@ const Deposite = () => {
                       <div
                         onClick={() =>
                           handleCopy(
-                            "",
+                            "0x18562342774d0f6db54264edcdc650a6e2c7d45c",
                           )
                         }
                         style={walletBox}
@@ -111,7 +111,7 @@ const Deposite = () => {
                     <div className="card-body">
                       <div
                         onClick={() =>
-                          handleCopy("")
+                          handleCopy("TAjZkvRtK5cdoG11udBx628Ncw8mPSh2Sc")
                         }
                         style={walletBox}
                       >
