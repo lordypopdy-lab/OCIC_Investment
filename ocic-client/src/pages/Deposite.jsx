@@ -111,7 +111,7 @@ const Deposite = () => {
                     <div className="card-body">
                       <div
                         onClick={() =>
-                          handleCopy("TAjZkvRtK5cdoG11udBx628Ncw8mPSh2Sc)
+                          handleCopy("TAjZkvRtK5cdoG11udBx628Ncw8mPSh2Sc")
                         }
                         style={walletBox}
                       >
