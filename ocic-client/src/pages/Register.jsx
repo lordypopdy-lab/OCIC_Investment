@@ -11,6 +11,8 @@ import { eye } from "react-icons-kit/feather/eye";
 import FadeLoader from "react-spinners/FadeLoader";
 import axios from "axios";
 import CustomCaptcha from "../components/CustomCaptcha";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/bootstrap.css";
 
 const Register = () => {
   const [icon, setIcon] = useState(eyeOff);
@@ -24,7 +26,8 @@ const Register = () => {
     currency: "",
     account: "",
     password: "",
-    comfirm_password: "",
+    phoneNumber: "",
+    confirm_password: "",
   });
 
   const handleToggle = () => {
@@ -38,6 +41,7 @@ const Register = () => {
   };
 
   const createUser = async (e) => {
+    console.log(data)
     e.preventDefault();
     if (!captchaOk) {
       toast.error("Please verify CAPTCHA before logging in!");
@@ -52,6 +56,7 @@ const Register = () => {
       currency,
       account,
       password,
+      phoneNumber,
       comfirm_password,
     } = data;
 
@@ -63,6 +68,7 @@ const Register = () => {
         currency,
         account,
         password,
+        phoneNumber,
         comfirm_password,
       })
       .then((data) => {
@@ -118,6 +124,35 @@ const Register = () => {
               value={data.email}
               onChange={(e) => setData({ ...data, email: e.target.value })}
               style={{ marginLeft: "2px" }}
+            />
+          </div>
+          <div className="form-group mt-3">
+            <PhoneInput
+              country={"us"}
+              value={data.phoneNumber}
+              onChange={(phone) =>
+                setData({ ...data, phoneNumber: `+${phone}` })
+              }
+              inputClass="data form-control"
+              buttonClass="btn"
+              dropdownClass="country-dropdown"
+              inputStyle={{
+                width: "100%",
+                marginLeft: "2px",
+                height: "40px",
+                borderRadius: "0.375rem",
+                border: "1px solid trans",
+                backgroundColor: "transparent",
+              }}
+              buttonStyle={{
+                border: "1px solid #ced4da",
+                backgroundColor: "transparent",
+              }}
+              containerStyle={{
+                width: "100%",
+              }}
+              placeholder="Enter phone number"
+              enableSearch
             />
           </div>
           <FadeLoader

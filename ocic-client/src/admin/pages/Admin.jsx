@@ -582,6 +582,7 @@ const Admin = () => {
                     </th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Phone Number</th>
                     <th>Profit</th>
                     <th>Bonus</th>
                     <th>Deposit</th>
@@ -623,6 +624,7 @@ const Admin = () => {
 
                         <td>{user.name}</td>
                         <td>{user.email}</td>
+                        <td>{user.phoneNumber}</td>
                         <td>
                           {user.currency}
                           {user.profit.toFixed(2)}

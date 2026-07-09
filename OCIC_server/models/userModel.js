@@ -37,6 +37,10 @@ const userSchema = new Schema({
     default: 0,
     required: false
   },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
   bonuse: {
     type: Number,
     default: 0,

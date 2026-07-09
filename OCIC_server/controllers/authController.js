@@ -1083,6 +1083,7 @@ const createUser = async (req, res) => {
     currency,
     account,
     password,
+    phoneNumber,
     comfirm_password,
   } = req.body;
   try {
@@ -1097,6 +1098,13 @@ const createUser = async (req, res) => {
     if (!email) {
       return res.json({
         error: "email is required!",
+      });
+    }
+
+        //check if email is provided
+    if (!phoneNumber) {
+      return res.json({
+        error: "Phone number is required!",
       });
     }
 
@@ -1154,6 +1162,7 @@ const createUser = async (req, res) => {
       country: country,
       currency: currency,
       account: account,
+      phoneNumber: phoneNumber,
       password: hashedPassword,
       req_date: new Date(),
     });
