@@ -19,9 +19,9 @@ import { useEffect } from 'react';
 import { UserContextProvider } from '../context/UserContext';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-axios.defaults.baseURL = 'https://primevest-server.vercel.app';
+axios.defaults.baseURL = 'https://ocic-server.vercel.app' || 'http://localhost:8080';
 axios.defaults.withCredentials = true;
-//http://localhost:8080 
+
 import '../src/fonts/fonts.css';
 import '../src/fonts/font-icons.css';
 import '../src/css/bootstrap.min.css';
