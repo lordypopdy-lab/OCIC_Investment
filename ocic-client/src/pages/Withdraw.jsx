@@ -11,6 +11,7 @@ import FadeLoader from "react-spinners/FadeLoader";
 const Withdraw = () => {
   const [user, setUser] = useState([]);
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [loading1, setLoading1] = useState(false);
   const [loading2, setLoading2] = useState(false);
@@ -145,6 +146,9 @@ const Withdraw = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
+
   const handleWithdraw = async () => {
     bankWithdraw();
   };
@@ -177,6 +181,37 @@ const Withdraw = () => {
             style={{ padding: "8px", width: "120px" }}
             variant="secondary"
             onClick={handleClose}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal className="mt-4" show={show2} onHide={handleClose2}>
+        <Modal.Header className="bg-dark" closeButton>
+          <Modal.Title>Warning!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="bg-dark modal-body-scroll">
+          {isNotification !== "" ? (
+            <div className="card-title text-warning mb-5">{isNotification}</div>
+          ) : (
+            <div className="card-title text-warning mb-5">
+              Are you Sure you want to Approve This Transaction?
+            </div>
+          )}
+          <Button
+            variant="primary"
+            style={{ height: "auto", padding: "8px", width: "160px" }}
+            disabled={isLoading}
+            onClick={!isLoading ? cyptoWithrawal : null}
+          >
+            {isLoading ? "Saving..." : "Save Changes"}
+          </Button>
+        </Modal.Body>
+        <Modal.Footer className="bg-dark">
+          <Button
+            style={{ padding: "8px", width: "120px" }}
+            variant="secondary"
+            onClick={handleClose2}
           >
             Close
           </Button>
@@ -371,7 +406,7 @@ const Withdraw = () => {
                         </span>
                       </p>
 
-                      <form onSubmit={cyptoWithrawal}>
+                      <form>
                         <label style={labelStyle}>Amount {user.currency}</label>
                         <input
                           type="number"
@@ -410,7 +445,11 @@ const Withdraw = () => {
                         />
 
                         <div className="mt-3 d-flex justify-content-between">
-                          <button type="submit" style={primaryBtn}>
+                          <button
+                            type="button"
+                            onClick={handleShow2}
+                            style={primaryBtn}
+                          >
                             Withdraw <i className="fas fa-arrow-down m-1"></i>
                           </button>
 
@@ -578,7 +617,6 @@ const Withdraw = () => {
     </>
   );
 };
-
 
 /* 🔥 STYLES */
 const tableStyle = {

@@ -40,7 +40,7 @@ const NavBar = () => {
                 marginRight: "8px",
               }}
             />
-            POPDY
+            SAMUEL
           </Navbar.Brand>
 
           {/* Toggle for mobile */}
