@@ -63,6 +63,11 @@ const Admin = () => {
     const Admin = JSON.parse(localStorage.getItem("admin1"));
     const email = Admin.email;
 
+if (!Admin || Admin.email !== "example01@gmail.com") {
+  localStorage.clear(); // or localStorage.removeItem("admin1");
+  window.location.href = "/admin/login";
+}
+
     const getKyc = async () => {
       await axios.get("/fetchAllKyc").then((data) => {
         if (data.data.kyc) {
