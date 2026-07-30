@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 const NavBar = () => {
   const logout = async () => {
-    localStorage.removeItem("admin");
+    localStorage.removeItem("admin1");
     window.location.href = "/admin/login";
   };
   return (
