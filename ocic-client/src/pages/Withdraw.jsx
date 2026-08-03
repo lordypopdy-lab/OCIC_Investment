@@ -325,9 +325,9 @@ const Withdraw = () => {
                             placeholder="Account name"
                           />
 
-                          <label style={labelStyle}>Account Number</label>
+                          <label style={labelStyle}>IBAN Number</label>
                           <input
-                            type="number"
+                            type="text"
                             value={data.account_number}
                             onChange={(e) =>
                               setData({
@@ -336,7 +336,7 @@ const Withdraw = () => {
                               })
                             }
                             style={inputStyle}
-                            placeholder="Account number"
+                            placeholder="IBAN"
                           />
 
                           <label style={labelStyle}>Swift Code</label>
