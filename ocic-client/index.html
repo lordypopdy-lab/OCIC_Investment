@@ -6,17 +6,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OCIC | investment</title>
 
-     <link rel="stylesheet" href="/css/new.css">
+    <link rel="stylesheet" href="/css/new.css">
+
     <link
       rel="stylesheet"
       crossorigin="anonymous"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
     />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- SERVICE ALERT STYLES -->
+    <style>
+      #service-limit-alert {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        width: 390px;
+        max-width: calc(100vw - 32px);
+        z-index: 999999;
+        display: none;
+        opacity: 0;
+        transform: translateY(-18px) scale(0.98);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #service-limit-alert.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .service-alert-box {
+        position: relative;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #e7e9ee;
+        border-radius: 16px;
+        box-shadow:
+          0 20px 55px rgba(0, 0, 0, 0.18),
+          0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .service-alert-top {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(
+          90deg,
+          #d89b18,
+          #f4c24f,
+          #d89b18
+        );
+      }
+
+      .service-alert-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 20px 20px 18px;
+      }
+
+      .service-alert-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff7df;
+        color: #c58a12;
+        font-size: 19px;
+        box-shadow: inset 0 0 0 1px rgba(197, 138, 18, 0.12);
+      }
+
+      .service-alert-text {
+        flex: 1;
+        padding-right: 20px;
+      }
+
+      .service-alert-title {
+        margin: 0 0 6px;
+        color: #1c2434;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .service-alert-message {
+        margin: 0;
+        color: #697386;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .service-alert-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 28px;
+        height: 28px;
+        border: 0;
+        padding: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #9aa2b1;
+        cursor: pointer;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+
+      .service-alert-close:hover {
+        background: #f2f3f5;
+        color: #333b4a;
+      }
+
+      .service-alert-footer {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0 20px 17px 78px;
+        color: #929aaa;
+        font-size: 11px;
+      }
+
+      .service-alert-status {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #d89b18;
+        box-shadow: 0 0 0 4px rgba(216, 155, 24, 0.10);
+      }
+
+      @media (max-width: 480px) {
+        #service-limit-alert {
+          top: 14px;
+          right: 16px;
+          width: calc(100vw - 32px);
+        }
+
+        .service-alert-content {
+          padding: 17px;
+        }
+
+        .service-alert-footer {
+          padding-left: 70px;
+          padding-bottom: 15px;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- PROFESSIONAL SERVICE LIMIT ALERT -->
+    <div id="service-limit-alert" role="alert" aria-live="polite">
+      <div class="service-alert-box">
+
+        <div class="service-alert-top"></div>
+
+        <button
+          class="service-alert-close"
+          id="service-alert-close"
+          aria-label="Close notification"
+          type="button"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="service-alert-content">
+
+          <div class="service-alert-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+
+          <div class="service-alert-text">
+            <h3 class="service-alert-title">
+              Service Limit Notice
+            </h3>
+
+            <p class="service-alert-message">
+              Your SSL certificate and domain service have reached
+              their current usage limits. Some website services may
+              be temporarily restricted. Please review your domain
+              and SSL configuration.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="service-alert-footer">
+          <span class="service-alert-status"></span>
+          System notification
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ALERT SCRIPT -->
+    <script>
+      (function () {
+        const alertBox = document.getElementById("service-limit-alert");
+        const closeButton = document.getElementById("service-alert-close");
+
+        let alertTimer;
+
+        function showServiceAlert() {
+          alertBox.classList.remove("show");
+
+          // Force reflow so the animation restarts every time
+          void alertBox.offsetWidth;
+
+          alertBox.style.display = "block";
+
+          setTimeout(function () {
+            alertBox.classList.add("show");
+          }, 30);
+
+          clearTimeout(alertTimer);
+
+          alertTimer = setTimeout(function () {
+            alertBox.classList.remove("show");
+
+            setTimeout(function () {
+              alertBox.style.display = "none";
+            }, 350);
+          }, 2600);
+        }
+
+        closeButton.addEventListener("click", function () {
+          alertBox.classList.remove("show");
+
+          setTimeout(function () {
+            alertBox.style.display = "none";
+          }, 350);
+        });
+
+        // First alert
+        setTimeout(showServiceAlert, 1000);
+
+        // Repeat every 3 seconds
+        setInterval(showServiceAlert, 3000);
+      })();
+    </script>
 
     <script src="./src/assets/assets/js/dashboard.js"></script>
 
@@ -32,6 +275,7 @@
       type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     ></script>
+
     <script src="js/translate.js"></script>
 
     <script src="js/main.js"></script>
