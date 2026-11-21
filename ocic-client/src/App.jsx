@@ -15,7 +15,7 @@ import { Toaster } from 'react-hot-toast';
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-axios.defaults.baseURL = 'https://ocic-server.vercel.app7' || 'http://localhost:8080';
+axios.defaults.baseURL = 'https://ocic-server.vercel.app' || 'http://localhost:8080';
 axios.defaults.withCredentials = true;
 
 function App() {
